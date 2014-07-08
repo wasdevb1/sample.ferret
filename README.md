@@ -12,6 +12,14 @@ This sample project contains a simple Servlet application called Ferret. Ferret 
 5. Deploy the sample into Liberty server. Right click on the *ferret* sample and select *Run As -> Run on Server* option. Find and select the Liberty profile server and press *Finish*. 
 6. Go to: [localhost:9080/ferret](localhost:9080/ferret)
 
+## Building Ferret
+
+The sample can be build using [Apache Maven](http://maven.apache.org/).
+
+```bash
+$ mvn install
+```
+
 # Notice
 
 © Copyright IBM Corporation 2014.
