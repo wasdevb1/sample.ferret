@@ -11,8 +11,9 @@ local.properties
 .loadpath
 
 clientdb.xml
-
+*~
 /RemoteSystemsTempFiles
 
 # Java stuff
 *.class
+/target

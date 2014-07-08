@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.ibm.samples.ferret;
+package net.wasdev.samples.ferret;
 
 import java.security.Principal;
 import java.util.Arrays;
@@ -87,7 +87,7 @@ public final class RequestData {
 
     private Map<String, List<String>> getRequestHeaders(final HttpServletRequest httpServletRequest) {
         final List<String> headerNames = Collections.list(httpServletRequest.getHeaderNames());
-        final Map<String, List<String>> headers = new HashMap<>();
+        final Map<String, List<String>> headers = new HashMap<String, List<String>>();
         for (final String name : headerNames) {
             final List<String> header = Collections.list(httpServletRequest.getHeaders(name));
             headers.put(name, header);
@@ -97,7 +97,7 @@ public final class RequestData {
 
     private Map<String, String> getRequestAttributes(final HttpServletRequest httpServletRequest) {
         final List<String> attributeNames = Collections.list(httpServletRequest.getAttributeNames());
-        final Map<String, String> attributes = new HashMap<>();
+        final Map<String, String> attributes = new HashMap<String, String>();
         for (final String name : attributeNames) {
             final Object attribute = httpServletRequest.getAttribute(name);
             if (attribute != null) {

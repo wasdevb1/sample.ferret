@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.ibm.samples.ferret;
+package net.wasdev.samples.ferret;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,9 +24,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ibm.samples.ferret.html.Element;
-import com.ibm.samples.ferret.html.Page;
-import com.ibm.samples.ferret.html.Element.ElementType;
+import net.wasdev.samples.ferret.html.Element;
+import net.wasdev.samples.ferret.html.Element.ElementType;
+import net.wasdev.samples.ferret.html.Page;
 
 @WebServlet("/*")
 public final class FerretServlet extends HttpServlet {

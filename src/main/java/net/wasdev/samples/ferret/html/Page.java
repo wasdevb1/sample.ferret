@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.ibm.samples.ferret.html;
+package net.wasdev.samples.ferret.html;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public final class Page {
     private static final String BODY_END = "</body>" //
             + "</html>";
 
-    private final List<Element> bodyElements = new ArrayList<>();
+    private final List<Element> bodyElements = new ArrayList<Element>();
 
     public Page() {
     }

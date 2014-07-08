@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.ibm.samples.ferret;
+package net.wasdev.samples.ferret;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -42,7 +42,7 @@ public final class FerretData {
 
     private Map<String, String> getServletContextAttributes(final ServletContext servletContext) {
         final List<String> attributeNames = Collections.list(servletContext.getAttributeNames());
-        final Map<String, String> attributes = new HashMap<>();
+        final Map<String, String> attributes = new HashMap<String, String>();
         for (final String name : attributeNames) {
             final Object attribute = servletContext.getAttribute(name);
             if (attribute != null) {

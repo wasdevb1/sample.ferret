@@ -5,17 +5,12 @@ This sample project contains a simple Servlet application called Ferret. Ferret 
 
 ## Running Ferret
 
-1. [Download Eclipse with the WebSphere Developer Tools](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/)
-2. Clone this repository
-3. Import the `ferret` project into Eclipse
-4. Create a new Liberty Profile Server
-5. Add the following to your server.xml:
-
-    ```xml
-    <webApplication id="ferret" location="ferret.war" name="ferret"/>
-    ```
-6. Start the server
-7. Go to: [localhost:9080/ferret](localhost:9080/ferret)
+1. Download and install [Eclipse with the WebSphere Developer Tools](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/).
+2. Create a new Liberty Profile Server. See [step 3](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/) for details.
+3. Clone this repository.
+4. Import the sample into Eclipse using *File -> Import -> Maven -> Existing Maven Projects* option.
+5. Deploy the sample into Liberty server. Right click on the *ferret* sample and select *Run As -> Run on Server* option. Find and select the Liberty profile server and press *Finish*. 
+6. Go to: [localhost:9080/ferret](localhost:9080/ferret)
 
 # Notice
 
