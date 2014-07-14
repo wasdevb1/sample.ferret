@@ -19,19 +19,19 @@ This project can be build with [Apache Maven](http://maven.apache.org/). The pro
 Use the following steps to run the application with Maven:
 
 1. To activate the automatic download and installation of Liberty runtime, you will first need to obtain the Liberty license code. To obtain this code read the current [Liberty license](http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/downloads/wlp/8.5.5.2/lafiles/runtime//en.html) and look for the `D/N: <license code>` line. Set the `IBM_LIBERTY_LICENSE` environment property with the license code found in the Liberty license file:
-```bash
-$ export IBM_LIBERTY_LICENSE=<license code>
-```
+    ```bash
+    $ export IBM_LIBERTY_LICENSE=<license code>
+    ```
 
 2. Execute full Maven build. This will cause Liberty Maven Plug-in to download and install Liberty profile server.
-```bash
-$ mvn clean install
-```
+    ```bash
+    $ mvn clean install
+    ```
 
 3. To run the server with the Ferret sample execute:
-```bash
-$ mvn liberty:run-server
-```
+    ```bash
+    $ mvn liberty:run-server
+    ```
 
 Once the server is running, the application will be available under [http://localhost:9080/](http://localhost:9080/).
 
