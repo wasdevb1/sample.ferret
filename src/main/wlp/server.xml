@@ -1,0 +1,18 @@
+<server description="ferret server">
+
+    <featureManager>
+        <feature>jsp-2.2</feature>
+        <feature>appSecurity-1.0</feature>
+    </featureManager>
+
+    <httpEndpoint id="defaultHttpEndpoint"
+                  host="*"
+                  httpPort="${httpPort}" >
+        <tcpOptions soReuseAddr="true"/>
+    </httpEndpoint>
+
+    <httpDispatcher enableWelcomePage="false"/>
+
+    <application name="ferret" context-root="/" location="${appLocation}" type="war" />
+
+</server>

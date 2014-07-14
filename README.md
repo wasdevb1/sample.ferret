@@ -12,13 +12,28 @@ This sample project contains a simple Servlet application called Ferret. Ferret 
 5. Deploy the sample into Liberty server. Right click on the *ferret* sample and select *Run As -> Run on Server* option. Find and select the Liberty profile server and press *Finish*. 
 6. Go to: [http://localhost:9080/ferret](http://localhost:9080/ferret)
 
-## Building
+## Running with Maven
 
-The sample can be build using [Apache Maven](http://maven.apache.org/).
+This project can be build with [Apache Maven](http://maven.apache.org/). The project uses [Liberty Maven Plug-in](https://github.com/WASdev/ci.maven) to automatically download and install Liberty profile runtime from the [WASdev repository](https://developer.ibm.com/wasdev/downloads/). Liberty Maven Plug-in is also used to create, configure, and run the application on the Liberty server. 
 
+Use the following steps to run the application with Maven:
+
+1. To activate the automatic download and installation of Liberty runtime, you will first need to obtain the Liberty license code. To obtain this code read the current [Liberty license](http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/downloads/wlp/8.5.5.2/lafiles/runtime//en.html) and look for the `D/N: <license code>` line. Set the `IBM_LIBERTY_LICENSE` environment property with the license code found in the Liberty license file:
 ```bash
-$ mvn install
+$ export IBM_LIBERTY_LICENSE=<license code>
 ```
+
+2. Execute full Maven build. This will cause Liberty Maven Plug-in to download and install Liberty profile server.
+```bash
+$ mvn clean install
+```
+
+3. To run the server with the Ferret sample execute:
+```bash
+$ mvn liberty:run-server
+```
+
+Once the server is running, the application will be available under [http://localhost:9080/](http://localhost:9080/).
 
 # Notice
 
