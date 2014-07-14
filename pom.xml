@@ -104,7 +104,7 @@
                             <configFile>src/main/wlp/server.xml</configFile>
                             <bootstrapProperties>
                                 <httpPort>9080</httpPort>
-                                <appLocation>${project.build.directory}/${project.build.finalName}</appLocation>
+                                <appLocation>../../../../../${project.build.finalName}</appLocation>
                             </bootstrapProperties>
                         </configuration>
                     </plugin>
