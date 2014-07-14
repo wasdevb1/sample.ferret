@@ -11,8 +11,6 @@
         <tcpOptions soReuseAddr="true"/>
     </httpEndpoint>
 
-    <httpDispatcher enableWelcomePage="false"/>
-
-    <application name="ferret" context-root="/" location="${appLocation}" type="war" />
+    <application name="ferret" context-root="/ferret" location="${appLocation}" type="war" />
 
 </server>

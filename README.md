@@ -33,7 +33,7 @@ Use the following steps to run the application with Maven:
     $ mvn liberty:run-server
     ```
 
-Once the server is running, the application will be available under [http://localhost:9080/](http://localhost:9080/).
+Once the server is running, the application will be available under [http://localhost:9080/ferret](http://localhost:9080/ferret).
 
 # Notice
 
