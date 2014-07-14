@@ -3,16 +3,16 @@ Ferret
 
 This sample project contains a simple Servlet application called Ferret. Ferret listens for HTTP requests sent to `<host>:<port>/ferret[/*]`, and responds with information about the request and the server.
 
-## Running Ferret
+## Running in Eclipse
 
 1. Download and install [Eclipse with the WebSphere Developer Tools](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/).
 2. Create a new Liberty Profile Server. See [step 3](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/) for details.
 3. Clone this repository.
 4. Import the sample into Eclipse using *File -> Import -> Maven -> Existing Maven Projects* option.
 5. Deploy the sample into Liberty server. Right click on the *ferret* sample and select *Run As -> Run on Server* option. Find and select the Liberty profile server and press *Finish*. 
-6. Go to: [localhost:9080/ferret](localhost:9080/ferret)
+6. Go to: [http://localhost:9080/ferret](http://localhost:9080/ferret)
 
-## Building Ferret
+## Building
 
 The sample can be build using [Apache Maven](http://maven.apache.org/).
 
