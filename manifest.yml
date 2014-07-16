@@ -1,0 +1,7 @@
+---
+path: .
+buildpack: https://github.com/heroku/heroku-buildpack-java.git
+command: $HOME/target/liberty/wlp/bin/server run
+env:
+    IBM_LIBERTY_LICENSE: <license code>
+

@@ -14,11 +14,11 @@ This sample project contains a simple Servlet application called Ferret. Ferret 
 
 ## Running with Maven
 
-This project can be build with [Apache Maven](http://maven.apache.org/). The project uses [Liberty Maven Plug-in](https://github.com/WASdev/ci.maven) to automatically download and install Liberty profile runtime from the [WASdev repository](https://developer.ibm.com/wasdev/downloads/). Liberty Maven Plug-in is also used to create, configure, and run the application on the Liberty server. 
+This project can be build with [Apache Maven](http://maven.apache.org/). The project uses [Liberty Maven Plug-in][] to automatically download and install Liberty profile runtime from the [Liberty repository](https://developer.ibm.com/wasdev/downloads/). Liberty Maven Plug-in is also used to create, configure, and run the application on the Liberty server. 
 
 Use the following steps to run the application with Maven:
 
-1. To activate the automatic download and installation of Liberty runtime, you will first need to obtain the Liberty license code. To obtain this code read the current [Liberty license](http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/downloads/wlp/8.5.5.2/lafiles/runtime//en.html) and look for the `D/N: <license code>` line. Set the `IBM_LIBERTY_LICENSE` environment property with the license code found in the Liberty license file:
+1. Set the `IBM_LIBERTY_LICENSE` environment property with the Liberty license code. See the following [instructions][Liberty License Instructions] on obtaining the license code. 
     ```bash
     $ export IBM_LIBERTY_LICENSE=<license code>
     ```
@@ -34,6 +34,27 @@ Use the following steps to run the application with Maven:
     ```
 
 Once the server is running, the application will be available under [http://localhost:9080/ferret](http://localhost:9080/ferret).
+
+## Deploying from source to Bluemix 
+
+This application can be deployed to [Bluemix](https://bluemix.net) directly from source using the [Heroku buildpack for Java applications](https://github.com/heroku/heroku-buildpack-java) and [Liberty Maven Plug-in][].
+
+1. Login to [Bluemix](https://bluemix.net):
+    ```bash
+    $ cf login
+    ```
+
+2. Update the `manifest.yml` file with the Liberty profile license code. See the following [instructions][Liberty License Instructions] on obtaining the license code. 
+    ```
+    ...
+    env:
+        IBM_LIBERTY_LICENSE: <license code>
+    ```
+
+3. Deploy the application:
+    ```bash
+    $ cf push
+    ```
 
 # Notice
 
@@ -54,3 +75,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ````
+
+[Liberty Maven Plug-in]: https://github.com/WASdev/ci.maven
+[Liberty License Instructions]: https://github.com/WASdev/ci.maven#using-a-repository
+
