@@ -14,7 +14,7 @@ This sample project contains a simple Servlet application called Ferret. Ferret 
 
 ## Running with Maven
 
-This project can be build with [Apache Maven](http://maven.apache.org/). The project uses [][Liberty Maven Plug-in] to automatically download and install Liberty profile runtime from the [Liberty repository](https://developer.ibm.com/wasdev/downloads/). Liberty Maven Plug-in is also used to create, configure, and run the application on the Liberty server. 
+This project can be build with [Apache Maven](http://maven.apache.org/). The project uses [][Liberty Maven Plugin] to automatically download and install Liberty profile runtime from the [Liberty repository](https://developer.ibm.com/wasdev/downloads/). Liberty Maven Plug-in is also used to create, configure, and run the application on the Liberty server. 
 
 Use the following steps to run the application with Maven:
 
@@ -55,6 +55,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ````
 
-[Liberty Maven Plug-in]: https://github.com/WASdev/ci.maven
+[Liberty Maven Plugin]: https://github.com/WASdev/ci.maven
 [Liberty License Instructions]: https://github.com/WASdev/ci.maven#using-a-repository
 
