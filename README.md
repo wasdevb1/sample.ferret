@@ -35,6 +35,12 @@ Use the following steps to run the application with Maven:
 
 Once the server is running, the application will be available under [http://localhost:9080/ferret](http://localhost:9080/ferret).
 
+## Deploying to Bluemix
+
+Click the button below to deploy your own copy of this application to [Bluemix](https://bluemix.net).
+
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/WASdev/sample.ferret.git)
+
 # Notice
 
 © Copyright IBM Corporation 2014.
