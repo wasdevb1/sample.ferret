@@ -16,12 +16,11 @@
 package net.wasdev.samples.ferret;
 
 import java.security.Principal;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TreeMap;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -52,7 +51,7 @@ public final class RequestData {
     private final String contextPath;
     private final Principal userPrincipal;
     private final Map<String, List<String>> requestHeaders;
-    private final Cookie[] cookies;
+    private final Map<String, String> cookies;
     private final Map<String, String> requestAttributes;
 
     public RequestData(final HttpServletRequest request) {
@@ -81,13 +80,13 @@ public final class RequestData {
         contextPath = request.getContextPath();
         userPrincipal = request.getUserPrincipal();
         requestHeaders = getRequestHeaders(request);
-        cookies = request.getCookies();
+        cookies = getCookies(request.getCookies());
         requestAttributes = getRequestAttributes(request);
     }
 
     private Map<String, List<String>> getRequestHeaders(final HttpServletRequest httpServletRequest) {
         final List<String> headerNames = Collections.list(httpServletRequest.getHeaderNames());
-        final Map<String, List<String>> headers = new HashMap<String, List<String>>();
+        final Map<String, List<String>> headers = new TreeMap<String, List<String>>();
         for (final String name : headerNames) {
             final List<String> header = Collections.list(httpServletRequest.getHeaders(name));
             headers.put(name, header);
@@ -97,7 +96,7 @@ public final class RequestData {
 
     private Map<String, String> getRequestAttributes(final HttpServletRequest httpServletRequest) {
         final List<String> attributeNames = Collections.list(httpServletRequest.getAttributeNames());
-        final Map<String, String> attributes = new HashMap<String, String>();
+        final Map<String, String> attributes = new TreeMap<String, String>();
         for (final String name : attributeNames) {
             final Object attribute = httpServletRequest.getAttribute(name);
             if (attribute != null) {
@@ -109,6 +108,16 @@ public final class RequestData {
         return attributes;
     }
 
+    private Map<String, String> getCookies(final Cookie[] cookies) {
+        final Map<String, String> map = new TreeMap<String, String>();
+        if (cookies != null) {
+            for (final Cookie cookie : cookies) {
+                map.put(cookie.getName(), cookie.getValue());
+            }
+        }
+        return map;
+    }
+    
     public String getMethod() {
         return method;
     }
@@ -209,7 +218,7 @@ public final class RequestData {
         return requestHeaders;
     }
 
-    public Cookie[] getCookies() {
+    public Map<String, String> getCookies() {
         return cookies;
     }
 
@@ -229,8 +238,38 @@ public final class RequestData {
                 + "</p> localPort = " + localPort + "</p> authorizationScheme = " + authorizationScheme
                 + "</p> preferredClientLocale = " + preferredClientLocale + "</p> allClientLocales = "
                 + allClientLocales + "</p> contextPath = " + contextPath + "</p> userPrincipal = " + userPrincipal
-                + "</p> requestHeaders = " + requestHeaders + "</p> cookies = " + Arrays.toString(cookies)
+                + "</p> requestHeaders = " + requestHeaders + "</p> cookies = " + cookies
                 + "</p> requestAttributes = " + requestAttributes;
     }
 
+    public Map<String, Object> getAsMap() {
+        Map<String, Object> map = new TreeMap<String, Object>();        
+        map.put("localPort", localPort);
+        map.put("authorizationScheme", authorizationScheme);
+        map.put("preferredClientLocale", preferredClientLocale);
+        map.put("allClientLocales", allClientLocales);
+        map.put("contextPath", contextPath);
+        map.put("userPrincipal", userPrincipal);
+        map.put("requestHeaders", requestHeaders);
+        map.put("requestAttributes", requestAttributes);
+        map.put("cookies", cookies);        
+        map.put("method", method);
+        map.put("uri", uri);
+        map.put("protocol", protocol);
+        map.put("servletPath", servletPath);
+        map.put("pathInfo", pathInfo);
+        map.put("pathTranslated", pathTranslated);
+        map.put("characterEncoding", characterEncoding);
+        map.put("queryString", queryString);        
+        map.put("contentLength", contentLength);
+        map.put("contentType", contentType);
+        map.put("serverName", serverName);
+        map.put("serverPort", serverPort);
+        map.put("remoteUser", remoteUser);
+        map.put("remoteAddress", remoteAddress);
+        map.put("remoteHost", remoteHost);
+        map.put("remotePort", remotePort);
+        return map;
+    }
+    
 }

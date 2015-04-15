@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -76,4 +77,13 @@ public final class FerretData {
                 + requestData + "</p> servletContextAttributes = " + servletContextAttributes;
     }
 
+    public Map<String, Object> getAsMap() {
+        Map<String, Object> map = new TreeMap<String, Object>();
+        map.put("requestedUrl", requestedUrl);
+        map.put("servletName", servletName);
+        map.put("requestData", requestData.getAsMap());
+        map.put("servletContextAttributes", servletContextAttributes);
+        return map;
+    }
+    
 }

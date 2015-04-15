@@ -17,6 +17,7 @@ package net.wasdev.samples.ferret;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.wasdev.samples.ferret.html.Element;
 import net.wasdev.samples.ferret.html.Element.ElementType;
 import net.wasdev.samples.ferret.html.Page;
+import net.wasdev.samples.ferret.html.Table;
 
 @WebServlet("/*")
 public final class FerretServlet extends HttpServlet {
@@ -62,9 +64,10 @@ public final class FerretServlet extends HttpServlet {
 
     private void writeResponse(final HttpServletRequest request, final HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
-        final String data = getFerretData(request).toString();
-        final PrintWriter writer = response.getWriter();
-        writer.println(new Page().withBodyElement(new Element(ElementType.DIV).withInnerHtml(data)).toHtml());
+        Map<String, Object> data = getFerretData(request).getAsMap();
+        Table table = new Table(data);
+        PrintWriter writer = response.getWriter();
+        writer.println(new Page().withBodyElement(new Element(ElementType.DIV).withInnerHtml(table.toHtml())).toHtml());
     }
 
 }
