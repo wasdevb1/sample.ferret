@@ -67,7 +67,7 @@
                 <configuration>
                     <configFile>src/main/wlp/server.xml</configFile>
                     <bootstrapProperties>
-                        <appLocation>../../../../../${project.build.finalName}</appLocation>
+                        <appLocation>${project.build.finalName}</appLocation>
                     </bootstrapProperties>
                 </configuration>
             </plugin>

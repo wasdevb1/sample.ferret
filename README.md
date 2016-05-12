@@ -57,5 +57,4 @@ limitations under the License.
 ````
 
 [Liberty Maven Plug-in]: https://github.com/WASdev/ci.maven
-[Liberty License Instructions]: https://github.com/WASdev/ci.maven#using-a-repository
 
