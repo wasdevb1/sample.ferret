@@ -117,7 +117,7 @@ public final class RequestData {
         }
         return map;
     }
-    
+
     public String getMethod() {
         return method;
     }
@@ -243,7 +243,7 @@ public final class RequestData {
     }
 
     public Map<String, Object> getAsMap() {
-        Map<String, Object> map = new TreeMap<String, Object>();        
+        Map<String, Object> map = new TreeMap<String, Object>();
         map.put("localPort", localPort);
         map.put("authorizationScheme", authorizationScheme);
         map.put("preferredClientLocale", preferredClientLocale);
@@ -252,7 +252,7 @@ public final class RequestData {
         map.put("userPrincipal", userPrincipal);
         map.put("requestHeaders", requestHeaders);
         map.put("requestAttributes", requestAttributes);
-        map.put("cookies", cookies);        
+        map.put("cookies", cookies);
         map.put("method", method);
         map.put("uri", uri);
         map.put("protocol", protocol);
@@ -260,7 +260,7 @@ public final class RequestData {
         map.put("pathInfo", pathInfo);
         map.put("pathTranslated", pathTranslated);
         map.put("characterEncoding", characterEncoding);
-        map.put("queryString", queryString);        
+        map.put("queryString", queryString);
         map.put("contentLength", contentLength);
         map.put("contentType", contentType);
         map.put("serverName", serverName);
@@ -269,7 +269,9 @@ public final class RequestData {
         map.put("remoteAddress", remoteAddress);
         map.put("remoteHost", remoteHost);
         map.put("remotePort", remotePort);
+        map.put("localHost", localHost);
+        map.put("localPort", localPort);
         return map;
     }
-    
+
 }
