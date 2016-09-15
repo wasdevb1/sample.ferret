@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Curl the Servlet URL for a 200 response code
+response=$(curl -sL -w "%{http_code}" localhost:9080/ferret -o /dev/null)
+
+# If the response is 200 (OK) then healthy (exit 0) else unhealthy (exit 1)
+if [ $response -eq 200 ]
+then
+    exit 0
+else
+    exit 1
+fi
