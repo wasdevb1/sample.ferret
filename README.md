@@ -1,4 +1,4 @@
-Ferret
+Ferret [![Build Status](https://travis-ci.org/WASdev/sample.ferret.svg?branch=master)](https://travis-ci.org/WASdev/sample.ferret)
 ======
 
 This sample project contains a simple Servlet application called Ferret. Ferret listens for HTTP requests sent to `<host>:<port>/ferret[/*]`, and responds with information about the request and the server.
