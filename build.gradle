@@ -1,0 +1,88 @@
+apply plugin: 'war'
+apply plugin: 'liberty'
+
+group = 'net.wasdev.wlp.sample'
+version = '1.3-SNAPSHOT'
+
+description = "Liberty Profile Sample - Ferret"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            name = 'Sonatype Nexus Snapshots'
+            url = 'https://oss.sonatype.org/content/repositories/snapshots/'
+        }
+    }
+    dependencies {
+        classpath 'net.wasdev.wlp.gradle.plugins:liberty-gradle-plugin:1.1-SNAPSHOT'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    // Liberty server properties
+    wlpServerName = 'LibertyProjectServer'
+    testServerHttpPort = 9080
+    testServerHttpsPort = 9443
+
+    warContext = 'ferret'
+}
+
+war {
+    archiveName = baseName + '.' + extension
+}
+
+dependencies {
+    providedCompile group: 'org.apache.geronimo.specs', name: 'geronimo-servlet_3.0_spec', version:'1.0'
+    libertyRuntime group: 'com.ibm.websphere.appserver.runtime', name: 'wlp-webProfile7', version: '17.0.0.2'
+}
+
+liberty {
+    server {
+        configFile = file('src/main/wlp/server.xml')
+        bootstrapProperties = ['appLocation': war.archiveName]
+
+        name = wlpServerName
+        apps = [war]
+    }
+}
+
+test {
+    println 'inside the test block'
+    reports.html.destination = file("$buildDir/reports/it")
+    reports.junitXml.destination = file("$buildDir/test-results/it")
+    exclude '**/it/**'
+}
+
+task integrationTest(type: Test) {
+    group 'Verification'
+    description 'Runs the integration tests.'
+    reports.html.destination = file("$buildDir/reports/it")
+    reports.junitXml.destination = file("$buildDir/test-results/it")
+    include '**/it/**'
+    exclude '**/unit/**'
+}
+
+gradle.taskGraph.whenReady { graph ->
+    if (graph.hasTask(":libertyStart") && !graph.hasTask(":libertyStop")) {
+        // Doesn't know if libertyStart succeeds or not
+        println ("The server should be running on: http://localhost:${testServerHttpPort}/${warContext}")
+    }
+
+}
+
+clean.dependsOn 'libertyStop'
+check.dependsOn 'integrationTest'
+integrationTest.dependsOn 'libertyStart', 'testClasses'
+integrationTest.finalizedBy 'libertyStop'
