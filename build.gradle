@@ -12,6 +12,11 @@ tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
 }
 
+// compileJava Table.java uses unchecked or unsafe operations
+compileJava {
+    options.compilerArgs += ["-Xlint:none"]
+}
+
 buildscript {
     repositories {
         mavenLocal()
@@ -30,6 +35,10 @@ repositories {
     mavenCentral()
 }
 
+war {
+    archiveName = baseName + '.' + extension
+}
+
 ext {
     // Liberty server properties
     wlpServerName = 'LibertyProjectServer'
@@ -37,10 +46,6 @@ ext {
     testServerHttpsPort = 9443
 
     warContext = 'ferret'
-}
-
-war {
-    archiveName = baseName + '.' + extension
 }
 
 dependencies {
@@ -51,27 +56,11 @@ dependencies {
 liberty {
     server {
         configFile = file('src/main/wlp/server.xml')
-        bootstrapProperties = ['appLocation': war.archiveName]
+        bootstrapProperties = ['appLocation': war.baseName]
 
         name = wlpServerName
         apps = [war]
     }
-}
-
-test {
-    println 'inside the test block'
-    reports.html.destination = file("$buildDir/reports/it")
-    reports.junitXml.destination = file("$buildDir/test-results/it")
-    exclude '**/it/**'
-}
-
-task integrationTest(type: Test) {
-    group 'Verification'
-    description 'Runs the integration tests.'
-    reports.html.destination = file("$buildDir/reports/it")
-    reports.junitXml.destination = file("$buildDir/test-results/it")
-    include '**/it/**'
-    exclude '**/unit/**'
 }
 
 gradle.taskGraph.whenReady { graph ->
@@ -83,6 +72,5 @@ gradle.taskGraph.whenReady { graph ->
 }
 
 clean.dependsOn 'libertyStop'
-check.dependsOn 'integrationTest'
-integrationTest.dependsOn 'libertyStart', 'testClasses'
-integrationTest.finalizedBy 'libertyStop'
+check.dependsOn 'libertyStart'
+check.finalizedBy 'libertyStop'
