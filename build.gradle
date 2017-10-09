@@ -12,10 +12,11 @@ tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
 }
 
-// compileJava Table.java uses unchecked or unsafe operations
-compileJava {
-    options.compilerArgs += ["-Xlint:none"]
-}
+/* compileJava Table.java uses unchecked or unsafe operations
+   Not sure what to put in the compiler args or if anything should be done */
+// compileJava {
+//    options.compilerArgs += ["-Xlint:unchecked"]
+// }
 
 buildscript {
     repositories {
