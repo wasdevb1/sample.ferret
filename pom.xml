@@ -14,7 +14,7 @@
     <version>1.3-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Liberty Profile Sample - Ferret</name>
+    <name>Liberty Sample - Ferret</name>
     <url>https://wasdev.github.io</url>
 
     <licenses>
