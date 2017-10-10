@@ -4,19 +4,13 @@ apply plugin: 'liberty'
 group = 'net.wasdev.wlp.sample'
 version = '1.3-SNAPSHOT'
 
-description = "Liberty Profile Sample - Ferret"
+description = "Liberty Sample - Ferret"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
 }
-
-/* compileJava Table.java uses unchecked or unsafe operations
-   Not sure what to put in the compiler args or if anything should be done */
-// compileJava {
-//    options.compilerArgs += ["-Xlint:unchecked"]
-// }
 
 buildscript {
     repositories {
