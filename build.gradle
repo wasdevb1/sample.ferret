@@ -28,7 +28,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.wasdev.wlp.gradle.plugins:liberty-gradle-plugin:1.1-SNAPSHOT'
+        classpath 'net.wasdev.wlp.gradle.plugins:liberty-gradle-plugin:2.0-SNAPSHOT'
     }
 }
 
@@ -69,7 +69,6 @@ gradle.taskGraph.whenReady { graph ->
         // Doesn't know if libertyStart succeeds or not
         println ("The server should be running on: http://localhost:${testServerHttpPort}/${warContext}")
     }
-
 }
 
 clean.dependsOn 'libertyStop'
