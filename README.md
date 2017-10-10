@@ -9,9 +9,8 @@ This sample project contains a simple Servlet application called Ferret. Ferret 
 2. Create a new Liberty Profile Server. See [step 3](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/) for details.
 3. Clone this repository.
 4. Import the sample into Eclipse using *File -> Import -> Maven -> Existing Maven Projects* option.
-5. Right click on the project and go to *Properties > Project Facets* and select *Dynamic Web Module* (if not already selected).
-6. Deploy the sample into Liberty server. Right click on the *servlet* sample and select *Run As -> Run on Server* option. Find and select the Liberty profile server and press *Finish*. 
-7. Go to: [http://localhost:9080/ferret](http://localhost:9080/ferret)
+5. Deploy the sample into Liberty server. Right click on the *ferret* sample and select *Run As -> Run on Server* option. Find and select the Liberty profile server and press *Finish*.
+6. Go to: [http://localhost:9080/ferret](http://localhost:9080/ferret)
 
 ## Running with Maven
 
@@ -24,7 +23,7 @@ Use the following steps to run the application with Maven:
     $ mvn clean install
     ```
 
-2. To run the server with the Servlet sample execute:
+2. To run the server with the Ferret sample execute:
     ```bash
     $ mvn liberty:run-server
     ```
