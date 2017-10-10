@@ -10,11 +10,11 @@ This sample project contains a simple Servlet application called Ferret. Ferret 
 3. Clone this repository.
 4. Import the sample into Eclipse using *File -> Import -> Maven -> Existing Maven Projects* option.
 5. Deploy the sample into Liberty server. Right click on the *ferret* sample and select *Run As -> Run on Server* option. Find and select the Liberty profile server and press *Finish*.
-6. Go to: [http://localhost:9080/ferret](http://localhost:9080/ferret)
+6. Go to: [http://localhost:9080/ferret][]
 
 ## Running with Maven
 
-This project can be built with [Apache Maven](http://maven.apache.org/). The project uses the [Liberty Maven Plug-in](http://github.com/WASDev/ci.maven) to automatically download and install the Liberty with Java EE Web Profile 7 runtime from [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ccom.ibm.websphere.appserver.runtime). The Liberty Maven Plug-in is also used to create, configure, and run the application on the Liberty server. 
+This project can be built with [Apache Maven](http://maven.apache.org/). The project uses the [Liberty Maven Plug-in][] to automatically download and install the Liberty Java EE Web Profile 7 runtime from [Maven Central][]. The Liberty Maven Plug-in is also used to create, configure, and run the application on the Liberty server. 
 
 Use the following steps to run the application with Maven:
 
@@ -23,18 +23,19 @@ Use the following steps to run the application with Maven:
     $ mvn clean install
     ```
 
-2. To run the server with the Ferret sample execute:
+2. To run the server 
+Ferret sample execute:
     ```bash
     $ mvn liberty:run-server
     ```
 
-Once the server is running, the application will be available under [http://localhost:9080/ferret](http://localhost:9080/ferret).
+Once the server is running, the application will be available under [http://localhost:9080/ferret][].
 
-Please refer to the [ci.maven](http://github.com/WASDev/ci.maven) repository for documentation about using the Liberty Maven Plug-in.
+Please refer to the [Liberty Maven Plug-in][] repository for documentation about using the Liberty Maven Plug-in.
 
 ## Running with Gradle
 
-This project can also be built and run with [Gradle](https://gradle.org/). The provided `build.gradle` file applies the [Liberty Gradle Plug-in](http://github.com/WASDev/ci.gradle) and is configured to automatically download and install the Liberty with Java EE Web Profile 7 runtime from [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ccom.ibm.websphere.appserver.runtime). The Liberty Gradle Plug-in has built-in tasks that can be used to create, configure, and run the application on the Liberty server.
+This project can also be built and run with [Gradle](https://gradle.org/). The provided `build.gradle` file applies the [Liberty Gradle Plug-in][] and is configured to automatically download and install the Liberty Java EE Web Profile 7 runtime from [Maven Central][]. The Liberty Gradle Plug-in has built-in tasks that can be used to create, configure, and run the application on the Liberty server.
   
 Use the following steps to run the application with the Gradle wrapper (Windows machines use `gradlew.bat`):
 
@@ -53,7 +54,7 @@ Use the following steps to run the application with the Gradle wrapper (Windows 
     $ ./gradlew libertyRun --no-daemon
     ```
     
-Once the server has started, the application will be available under [http://localhost:9080/ferret](http://localhost:9080/ferret).
+Once the server has started, the application will be available under [http://localhost:9080/ferret][].
 
 3. To stop the server, execute:
     ```bash
@@ -62,7 +63,7 @@ Once the server has started, the application will be available under [http://loc
 
 Note, if Gradle is properly installed, Gradle commands can be executed directly using `gradle` and wouldn't require `gradlew`.
 
-Please refer to the [ci.gradle](http://github.com/WASDev/ci.gradle) repository for documentation about using the Liberty Gradle Plug-in.
+Please refer to the [Liberty Gradle Plug-in][] repository for documentation about using the Liberty Gradle Plug-in.
 
 ## Deploying to Bluemix
 
@@ -91,4 +92,6 @@ limitations under the License.
 ````
 
 [Liberty Maven Plug-in]: https://github.com/WASdev/ci.maven
-
+[Liberty Gradle Plug-in]: https://github.com/WASdev/ci.gradle
+[Maven Central]: http://search.maven.org/#search%7Cga%7C1%7Ccom.ibm.websphere.appserver.runtime
+[http://localhost:9080/ferret]: http://localhost:9080/ferret
