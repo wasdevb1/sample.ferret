@@ -18,11 +18,11 @@ buildscript {
         mavenCentral()
         maven {
             name = 'Sonatype Nexus Snapshots'
-            url = 'https://oss.sonatype.org/content/repositories/snapshots/'
+            url = 'https://oss.sonatype.org/content/repositories/netwasdev-1088'
         }
     }
     dependencies {
-        classpath 'net.wasdev.wlp.gradle.plugins:liberty-gradle-plugin:2.0-SNAPSHOT'
+        classpath 'net.wasdev.wlp.gradle.plugins:liberty-gradle-plugin:2.0'
     }
 }
 
@@ -61,7 +61,9 @@ liberty {
 gradle.taskGraph.whenReady { graph ->
     if (graph.hasTask(":libertyStart") && !graph.hasTask(":libertyStop")) {
         // Doesn't know if libertyStart succeeds or not
-        println ("The server should be running on: http://localhost:${testServerHttpPort}/${warContext}")
+        libertyStart.doLast {
+            println ("The server should be running on: http://localhost:${testServerHttpPort}/${warContext}")
+        }
     }
 }
 
