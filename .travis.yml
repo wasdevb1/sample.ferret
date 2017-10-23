@@ -1,6 +1,11 @@
 language: java
+
 jdk:
-    - oraclejdk8
-script: 
-    -  mvn test
-    - ./gradlew build
+    - openjdk8
+
+env:
+    - TEST_COMMAND="gradle clean build"
+    - TEST_COMMAND="mvn clean install"
+
+script:
+    - (eval "$TEST_COMMAND")
